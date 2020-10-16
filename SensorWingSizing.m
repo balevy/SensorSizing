@@ -22,7 +22,7 @@ for i = 1:thetaSteps
 end
 AR = b^2./wing_ref_area;
 e = 0.8;
-v = 25;
+v = 29;
 CD_0 = 0.06;
 rho = 1.225;
 
@@ -58,6 +58,7 @@ for i = 1:length(theta)
             end
             
             wing_ref_area(i,j) = wing_ref_area(i,j) + 0.1*wing_ref_area_err;
+            AR(i,j) = b^2/wing_ref_area(i,j);
         end
     end
 end
