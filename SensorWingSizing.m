@@ -6,12 +6,12 @@
 in2m = 0.0254;
 b = 8*in2m;
 steps = 1000;
-thetaSteps = 10;
-sensorMassSteps = 10;
+thetaSteps = 500;
+sensorMassSteps = 500;
 thetaRange = [0, 45];
-theta = linspace(thetaRange(1), thetaRange(2), 10);
+theta = linspace(thetaRange(1), thetaRange(2), thetaSteps);
 sensorMassRange = [0.1, 1]; %kg
-sensorMass = linspace(sensorMassRange(1), sensorMassRange(2), 10);
+sensorMass = linspace(sensorMassRange(1), sensorMassRange(2), sensorMassSteps);
 CL_Cruise = 0.5;
 
 wing_ref_area = zeros(thetaSteps, sensorMassSteps);
@@ -63,8 +63,8 @@ for i = 1:length(theta)
     end
 end
 
-[X, Y] = meshgrid(theta, sensorMass);
+[X, Y] = meshgrid(sensorMass, theta);
 contourf(X, Y, wing_ref_area);
 colorbar;
-xlabel('Tether Angle (degrees)');
-ylabel('Sensor Mass (kg)');
+xlabel('Sensor Mass (kg)');
+ylabel('Tether Angle (degrees)');
