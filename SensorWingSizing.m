@@ -53,7 +53,7 @@ for i = 1:length(theta)
             wing_ref_area_err = wing_ref_area_req - wing_ref_area(i,j);
             
             if (abs(wing_ref_area_err) <= 1e-8)
-                fprintf("Converged after %d iterations \n", iter);
+                %fprintf("Converged after %d iterations \n", iter);
                 break
             end
             
